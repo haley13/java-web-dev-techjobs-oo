@@ -2,7 +2,7 @@ package org.launchcode.techjobs_oo;
 
 import java.util.Objects;
 
-public class Location {
+public class Location extends Employer{
     private int id;
     private static int nextId = 1;
     private String value;
@@ -18,23 +18,21 @@ public class Location {
     public Location (String value) {
         this();
         this.value = value;
+    }
     // Custom toString, equals, and hashCode methods:
 
-    @Override
-    public String toString() {
+        public String toString() {
         return value;
     }
 
-    @Override
-    public boolean equals(Object o) {
+        public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Location)) return false;
         Location location = (Location) o;
         return getId() == location.getId();
     }
 
-    @Override
-    public int hashCode() {
+        public int hashCode() {
         return Objects.hash(getId());
     }
 

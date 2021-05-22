@@ -2,7 +2,7 @@ package org.launchcode.techjobs_oo;
 
 import java.util.Objects;
 
-public class CoreCompetency {
+public class CoreCompetency extends Employer{
     private int id;
     private static int nextId = 1;
     private String value;
@@ -30,12 +30,10 @@ public class CoreCompetency {
     }
     // Custom toString, equals, and hashCode methods:
 
-    @Override
     public String toString() {
         return value;
     }
 
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof CoreCompetency)) return false;
@@ -43,7 +41,6 @@ public class CoreCompetency {
         return id == that.id;
     }
 
-    @Override
     public int hashCode() {
         return Objects.hash(id);
     }

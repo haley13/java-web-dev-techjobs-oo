@@ -1,6 +1,6 @@
 package org.launchcode.techjobs_oo;
 
-public class PositionType {
+public class PositionType extends Employer {
     private int id;
     private static int nextId = 1;
     private String value;
@@ -17,7 +17,6 @@ public class PositionType {
 
     // TODO: Add a custom toString() method that returns the data stored in 'value'.
 
-    @Override
     public String toString() {
         return value;
     }
