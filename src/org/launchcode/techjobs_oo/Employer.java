@@ -14,13 +14,13 @@ public class Employer {
 
     public Employer(String value) {
         this();
-        this.value = value;
+        this.value = value;//id value=value
     }
 
     // Custom toString, equals, and hashCode methods:
 @Override
     public String toString() {
-        return value;
+        return value;//return the id value;
     }
 @Override
     public boolean equals(Object o) {  // Two objects are equal if they have the same id.

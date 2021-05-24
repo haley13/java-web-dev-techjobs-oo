@@ -1,5 +1,7 @@
 package org.launchcode.techjobs_oo;
 
+
+
 public class Job {
 
     private int id;
@@ -18,7 +20,6 @@ public class Job {
         id = nextId;
         nextId++;
     }
-
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
         this.name = name;
@@ -26,6 +27,18 @@ public class Job {
         this.location = location;
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
+    }
+
+    public String toString() {
+      Job fieldCheck= new Job();
+        if (fieldCheck.name.isEmpty() || fieldCheck.employer.getValue().isEmpty()|| fieldCheck.location.getValue().isEmpty() || fieldCheck.coreCompetency.getValue().isEmpty()) {
+            return "Data not available";
+     } else {
+            return
+                    id + "______" + " " + name + "______" + " " + employer + "______" + " " + location + "______" + " " + positionType + "______" +
+                            " " + coreCompetency + "______" + "ID:" + id + "______" + "\nName:" + name + "______" + "\nEmployer" + employer + "______" + "\nLocation:" + location + "______" + "\nPosition Type:" + positionType + "______"
+                            + "\nCore Competency:" + coreCompetency + "______";
+        }
     }
 // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
