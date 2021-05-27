@@ -1,25 +1,21 @@
 package org.launchcode.techjobs_oo.tests;
 import org.junit.Before;
 import org.junit.Test;
-import org.launchcode.techjobs_oo.Employer;
-import org.launchcode.techjobs_oo.Location;
-import org.launchcode.techjobs_oo.PositionType;
-import org.launchcode.techjobs_oo.CoreCompetency;
-import org.launchcode.techjobs_oo.Job;
+import org.launchcode.techjobs_oo.*;
+
 import static org.junit.Assert.fail;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
-public class JobTest {
+public class JobTest extends JobField {
     Job test_job;
     Job test_job2;
     Job test_job3;
 
     @Before
     public void createJobObject() {
-        //test_job = new Job();
-        test_job2 = new Job();
+        test_job2= new Job(" ", new Employer(" "), new Location(" "), new PositionType(" "), new CoreCompetency(" "));
         test_job = new Job("Product tester", new Employer("Acme"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         test_job3 = new Job("Product tester", new Employer("Acme"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
     }
@@ -33,38 +29,64 @@ public class JobTest {
     @Test
     public void testJobConstructorSetsAllFields() {
         assertTrue(test_job.getName().contains("Product tester"));
-        assertTrue(test_job.getEmployer().getValue().equals("Acme"));
+        assertTrue(test_job.getEmployer().getValue().contains("Acme"));
         assertTrue(test_job.getLocation().getValue().equals("Desert"));
-        assertTrue(test_job.getPositionType().getValue().equals("Quality control"));
-        assertTrue(test_job.getCoreCompetency().getValue().equals("Persistence"));
+        assertTrue(test_job.getPositionType().getValue().contains("Quality control"));
+        assertTrue(test_job.getCoreCompetency().getValue().contains("Persistence"));
     }
 
     @Test
     public void testJobsForEquality() {
+
         assertEquals(test_job.getId(), test_job3.getId());
     }
 
     @Test
     public void testJobsForBlankLines() {
-        assertEquals(test_job.getId() + "______" +  " " + test_job.getName() + "______" + " " + test_job.getEmployer() + "______" + " " + test_job.getLocation() + "______" + " " + test_job.getPositionType() + "______" +
-                " " +   test_job.getCoreCompetency() + "______" + "ID:" + test_job.getId() + "______" + "\nName:" + test_job.getName() + "______" + "\nEmployer" + test_job.getEmployer() + "______" + "\nLocation:" + test_job.getLocation() + "______" + "\nPosition Type:" + test_job.getPositionType() + "______"
-                + "\nCore Competency:" + test_job.getCoreCompetency() + "______", test_job.toString(), test_job.toString());
+        assertEquals(test_job.getId() + "______" + "\n" +
+                test_job.getName() +
+                "______"+ test_job.getEmployer().getValue() + "\n" +
+                "______" + test_job.getLocation().getValue() + "\n" +
+                "______"  + test_job.getPositionType().getValue() + "\n" +
+                "______" + test_job.getCoreCompetency().getValue() + "______", test_job.toString());
+//                + "ID:" + test_job.getId() + "______" + "\nName:" + test_job.getName() + "______" + "\nEmployer" + test_job.getEmployer() + "______" + "\nLocation:" + test_job.getLocation() + "______" + "\nPosition Type:" + test_job.getPositionType() + "______"
+//                + "\nCore Competency:" + test_job.getCoreCompetency() + "______", test_job.toString(), test_job.toString());
     }
 
-    @Test
-    public void testJobsForLabels() {
-        assertEquals(test_job.getId() + "______" +  " " + test_job.getName() + "______" + " " + test_job.getEmployer() + "______" + " " + test_job.getLocation() + "______" + " " + test_job.getPositionType() + "______" +
-                " " +   test_job.getCoreCompetency() + "______" + "ID:" + test_job.getId() + "______" + "\nName:" + test_job.getName() + "______" + "\nEmployer" + test_job.getEmployer() + "______" + "\nLocation:" + test_job.getLocation() + "______" + "\nPosition Type:" + test_job.getPositionType() + "______"
-                + "\nCore Competency:" + test_job.getCoreCompetency() + "______", test_job.toString());
-        //do i put a method w/i a method?
-    }
+   @Test
+   public void testJobsForLabels() {
+        assertEquals("ID: " + test_job.getId() + "______" + "\n" +
+                "Name: " + test_job.getName() + "\n" + "______" +
+                "Employer: " + test_job.getEmployer() + "\n" + "______" +
+                "Location:  " + test_job.getLocation() + "\n" + "______" +
+                "Position Type: " + test_job.getPositionType() + "\n" + "______" +
+                "Core Competency: " + test_job.getCoreCompetency() + "______", test_job.toString());
+//        //do i put a method w/i a method?
+   }
     @Test
     public void testJobForEmptyFields() {
-        assertEquals(test_job.getEmployer().getValue().isEmpty(), test_job.toString().isEmpty());
+
+
+
+
+
+        assertEquals("ID: "  +"Data not available" + "\n" +
+                "Name: " + "Data not available" + "\n" +
+                "Employer: " + "Data not available" + "\n" +
+                "Location: " +  "Data not available" + "\n" +
+                "Position Type: " +"Data not available" + "\n" +
+                "Core Competency: " + "Data not available", test_job2.toString());
     }
 }
 
 
 
 
-
+//
+//
+//"ID: " + test_job2.getId() + "Data not available" + "\n" +
+//        "Name: " + test_job2.getName() + "Data not available" + "\n" +
+//        "Employer: " + test_job2.getEmployer() + "Data not available" + "\n" +
+//        "Location:  " + test_job2.getLocation() + "Data not available" + "\n" +
+//        "Position Type: " + test_job2.getPositionType() + "Data not available" + "\n" +
+//        "Core Competency: " + test_job2.getCoreCompetency() + "Data not available"

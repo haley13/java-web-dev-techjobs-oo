@@ -1,8 +1,9 @@
 package org.launchcode.techjobs_oo;
 
 
+import static org.junit.Assert.assertEquals;
 
-public class Job {
+public class Job extends JobField {
 
     private int id;
     private static int nextId = 1;
@@ -28,18 +29,31 @@ public class Job {
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
     }
-
+@Override
     public String toString() {
-      Job fieldCheck= new Job();
-        if (fieldCheck.name.isEmpty() || fieldCheck.employer.getValue().isEmpty()|| fieldCheck.location.getValue().isEmpty() || fieldCheck.coreCompetency.getValue().isEmpty()) {
-            return "Data not available";
-     } else {
-            return
-                    id + "______" + " " + name + "______" + " " + employer + "______" + " " + location + "______" + " " + positionType + "______" +
-                            " " + coreCompetency + "______" + "ID:" + id + "______" + "\nName:" + name + "______" + "\nEmployer" + employer + "______" + "\nLocation:" + location + "______" + "\nPosition Type:" + positionType + "______"
-                            + "\nCore Competency:" + coreCompetency + "______";
-        }
+    if (name.contains(" ") || employer.getValue().contains(" ") || location.getValue().contains(" ") ||
+            positionType.getValue().contains(" ") || coreCompetency.getValue().contains(" ")) {
+        return "ID: " + "Data not available" + "\n" +
+                "Name: " + "Data not available" + "\n" +
+                "Employer: " + "Data not available" + "\n" +
+                "Location: " + "Data not available" + "\n" +
+                "Position Type: " + "Data not available" + "\n" +
+                "Core Competency: " + "Data not available";
+
+
+//                            + "ID:" + id + "______" + "\nName:" + name + "______" + "\nEmployer" + employer + "______" + "\nLocation:" + location + "______" + "\nPosition Type:" + positionType + "______"
+//+ "\nCore Competency:" + coreCompetency + "______";
+    } else {
+        return "ID: " + id + "______" + "\n" +
+                "Name: " + name + "\n" + "______" +
+                "Employer: " + employer + "\n" + "______" +
+                "Location:  " + location + "\n" + "______" +
+                "Position Type: " + positionType + "\n" + "______" +
+                "Core Competency: " + coreCompetency + "______";
+
     }
+}
+
 // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
