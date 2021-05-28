@@ -28,32 +28,52 @@ public class Job extends JobField {
     }
 @Override
     public String toString() {
-    return id + "______" +
-            name +
-            "______" + employer +
-            "______" + location +
-            "______" + positionType +
-            "______" + coreCompetency + "______";
+    if (name.isEmpty() && employer.getValue().isEmpty() && location.getValue().isEmpty() &&
+            positionType.getValue().isEmpty() && coreCompetency.getValue().isEmpty()) {
+        return "OOPS! This job does not seem to exist.";
+    } else {
+        String notAvailable = "Data not available";
+        String nameDisplay;
+        String employerDisplay;
+        String locationDisplay;
+        String positionTypeDisplay;
+        String coreCompetencyDisplay;
+        if (name.isEmpty()) {
+            nameDisplay = notAvailable;
+        } else {
+            nameDisplay = name;
+        }
+        if (employer.getValue().isEmpty()) {
+            employerDisplay = notAvailable;
+        } else {
+            employerDisplay = employer.getValue();
+        }
+        if (location.getValue().isEmpty()) {
+            locationDisplay = notAvailable;
+        } else {
+            locationDisplay = location.getValue();
+        }
+        if (positionType.getValue().isEmpty()) {
+            positionTypeDisplay = notAvailable;
+        } else {
+            positionTypeDisplay = positionType.getValue();
+        }
+        if (coreCompetency.getValue().isEmpty()) {
+            coreCompetencyDisplay = notAvailable;
+        } else {
+            coreCompetencyDisplay = coreCompetency.getValue();
+        }
 
-    if (name.isEmpty() || employer.getValue().isEmpty() || location.getValue().contains(" ") ||
-            positionType.getValue().contains(" ") && coreCompetency.getValue().contains(" ")) {
-        String s = "ID: " + "Data not available" + "\n" +
-                "Name: " + "Data not available" + "\n" +
-                "Employer: " + "Data not available" + "\n" +
-                "Location: " + "Data not available" + "\n" +
-                "Position Type: " + "Data not available" + "\n" +
-                "Core Competency: " + "Data not available";
-        return s;
-            } else {
-        return "ID: " + id + "______" + "\n" +
-                "Name: " + name + "\n" + "______" +
-                "Employer: " + employer + "\n" + "______" +
-                "Location:  " + location + "\n" + "______" +
-                "Position Type: " + positionType + "\n" + "______" +
-                "Core Competency: " + coreCompetency + "______";
+        return "\n" + "ID: " + id + "\n" +
+                "Name: " + nameDisplay + "\n" +
+                "Employer: " + employerDisplay + "\n" +
+                "Location: " + locationDisplay + "\n" +
+                "Position Type: " + positionTypeDisplay + "\n" +
+                "Core Competency: " + coreCompetencyDisplay + "\n";
 
     }
 }
+
 
 
         //it doesn't separate the returns!! it takes the first return and doesn't consider the 2nd one, i need to look this over
