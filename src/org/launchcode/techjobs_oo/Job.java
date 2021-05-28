@@ -1,8 +1,5 @@
 package org.launchcode.techjobs_oo;
 
-
-import static org.junit.Assert.assertEquals;
-
 public class Job extends JobField {
 
     private int id;
@@ -31,19 +28,23 @@ public class Job extends JobField {
     }
 @Override
     public String toString() {
-    if (name.contains(" ") || employer.getValue().contains(" ") || location.getValue().contains(" ") ||
-            positionType.getValue().contains(" ") || coreCompetency.getValue().contains(" ")) {
-        return "ID: " + "Data not available" + "\n" +
+    return id + "______" +
+            name +
+            "______" + employer +
+            "______" + location +
+            "______" + positionType +
+            "______" + coreCompetency + "______";
+
+    if (name.isEmpty() || employer.getValue().isEmpty() || location.getValue().contains(" ") ||
+            positionType.getValue().contains(" ") && coreCompetency.getValue().contains(" ")) {
+        String s = "ID: " + "Data not available" + "\n" +
                 "Name: " + "Data not available" + "\n" +
                 "Employer: " + "Data not available" + "\n" +
                 "Location: " + "Data not available" + "\n" +
                 "Position Type: " + "Data not available" + "\n" +
                 "Core Competency: " + "Data not available";
-
-
-//                            + "ID:" + id + "______" + "\nName:" + name + "______" + "\nEmployer" + employer + "______" + "\nLocation:" + location + "______" + "\nPosition Type:" + positionType + "______"
-//+ "\nCore Competency:" + coreCompetency + "______";
-    } else {
+        return s;
+            } else {
         return "ID: " + id + "______" + "\n" +
                 "Name: " + name + "\n" + "______" +
                 "Employer: " + employer + "\n" + "______" +
@@ -53,6 +54,9 @@ public class Job extends JobField {
 
     }
 }
+
+
+        //it doesn't separate the returns!! it takes the first return and doesn't consider the 2nd one, i need to look this over
 
 // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.

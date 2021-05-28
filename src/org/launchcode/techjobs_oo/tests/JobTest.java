@@ -43,11 +43,11 @@ public class JobTest extends JobField {
 
     @Test
     public void testJobsForBlankLines() {
-        assertEquals(test_job.getId() + "______" + "\n" +
+        assertEquals(test_job.getId() + "______" +
                 test_job.getName() +
-                "______"+ test_job.getEmployer().getValue() + "\n" +
-                "______" + test_job.getLocation().getValue() + "\n" +
-                "______"  + test_job.getPositionType().getValue() + "\n" +
+                "______"+ test_job.getEmployer().getValue() +
+                "______" + test_job.getLocation().getValue() +
+                "______"  + test_job.getPositionType().getValue() +
                 "______" + test_job.getCoreCompetency().getValue() + "______", test_job.toString());
 //                + "ID:" + test_job.getId() + "______" + "\nName:" + test_job.getName() + "______" + "\nEmployer" + test_job.getEmployer() + "______" + "\nLocation:" + test_job.getLocation() + "______" + "\nPosition Type:" + test_job.getPositionType() + "______"
 //                + "\nCore Competency:" + test_job.getCoreCompetency() + "______", test_job.toString(), test_job.toString());
@@ -55,20 +55,22 @@ public class JobTest extends JobField {
 
    @Test
    public void testJobsForLabels() {
+//        test_job.getId();
+//        test_job.getName().contains("Name: " + "______");
+//        test_job.getEmployer().getValue().contains("Employer: ");
+//        test_job.getLocation().getValue().contains("Location: ");
+//        test_job.getPositionType().getValue().contains("Position Type: ");
+//        test_job.getCoreCompetency().getValue().contains("Persistence: ");
         assertEquals("ID: " + test_job.getId() + "______" + "\n" +
                 "Name: " + test_job.getName() + "\n" + "______" +
-                "Employer: " + test_job.getEmployer() + "\n" + "______" +
-                "Location:  " + test_job.getLocation() + "\n" + "______" +
-                "Position Type: " + test_job.getPositionType() + "\n" + "______" +
-                "Core Competency: " + test_job.getCoreCompetency() + "______", test_job.toString());
+                "Employer: " + test_job.getEmployer().getValue() + "\n" + "______" +
+                "Location:  " + test_job.getLocation().getValue() + "\n" + "______" +
+                "Position Type: " + test_job.getPositionType().getValue() + "\n" + "______" +
+                "Core Competency: " + test_job.getCoreCompetency().getValue() + "______", test_job.toString());
 //        //do i put a method w/i a method?
    }
     @Test
     public void testJobForEmptyFields() {
-
-
-
-
 
         assertEquals("ID: "  +"Data not available" + "\n" +
                 "Name: " + "Data not available" + "\n" +
